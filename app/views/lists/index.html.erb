@@ -1,0 +1,13 @@
+<h1>TOP MOVIES</h1>
+
+<div class="container">
+  <% @movies.each do |movie| %>
+    <div class="cards">
+      <tr>
+        <td><strong><%= movie.title %></strong></td><br>
+        <td><em><%= movie.overview %></em></td><br>
+        <td><%= movie.rating %></td><br>
+      </tr>
+    </div>
+  <% end %>
+</div>
