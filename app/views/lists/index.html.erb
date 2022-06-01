@@ -1,13 +1,11 @@
+<div class="container">
 <h1>TOP MOVIES</h1>
 
-<div class="container">
-  <% @movies.each do |movie| %>
-    <div class="cards">
-      <tr>
-        <td><strong><%= movie.title %></strong></td><br>
-        <td><em><%= movie.overview %></em></td><br>
-        <td><%= movie.rating %></td><br>
-      </tr>
-    </div>
-  <% end %>
+  <h5><%= link_to 'Create List', new_list_path %></h3>
+
+  <div class="cards">
+    <% @lists.each do |list| %>
+      <%= link_to "#{list.name}", list_path(list) %>
+    <% end %>
+  </div>
 </div>

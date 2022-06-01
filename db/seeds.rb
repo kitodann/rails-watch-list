@@ -13,7 +13,13 @@ url = 'https://tmdb.lewagon.com/movie/top_rated'
 uri = URI.open(url).read
 response = JSON.parse(uri)
 
+# Access to the array inside the parsed JSON file
 create_movies = response['results']
+
+Movie.destroy_all
+puts 'Cleaning DB.......................'
+
+puts ' Creating top movies.......................'
 
 create_movies.each do |m|
   movie = Movie.create(
@@ -25,4 +31,14 @@ create_movies.each do |m|
   puts movie.title
 end
 
-# puts response['results'][0]['title']
+# puts ' Creating genre lists.......................'
+
+# genres = %w[action adventure comedy fantasy horror romance western drama historical]
+
+# genres.each do |genre|
+#   list = List.create(
+#     name: genre
+#   )
+
+#   puts list.name
+# end
